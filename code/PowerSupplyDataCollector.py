@@ -10,7 +10,7 @@ from matplotlib import pyplot as plt
 CC_CURRENT = 1 # CC current in A
 CC_VOLTAGE = 20 # CC max voltage in V
 MEASURING_TIME = 10 # Measuring time in s
-MEASURING_INTERVAL = 0.1 # Measuring interval in s
+MEASURING_INTERVAL = 1 # Measuring interval in s
 
 def byte_to_float(b):
     return float(b.decode())
@@ -79,6 +79,7 @@ def main():
     
     # Turn on and start measuring
     setOnState(ser, True)
+    time.sleep(1) # Sleep for 1 second before measurements start
     t_array = np.array([])
     I_array = np.array([])
     U_array = np.array([])
@@ -91,29 +92,33 @@ def main():
         I_array = np.append(I_array, i)
         U_array = np.append(U_array, u)
         # print(f"Data: u = {u}, i = {i}")
+
+        # Save data
+        with open(f'data/PowerSupplyData_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.npy', 'wb') as f:
+            np.save(f, t_array)
+            np.save(f, I_array)
+            np.save(f, U_array)
+
+        # Plot data
+        plt.plot(t_array, I_array)
+        plt.xlabel('Time (s)')
+        plt.ylabel('Current (A)')
+        plt.savefig(f"data/plots/CURRENT_PowerSupplyData_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.close()
+
+        plt.plot(t_array, U_array)
+        plt.xlabel('Time (s)')
+        plt.ylabel('Voltage (V)')
+        plt.savefig(f"data/plots/VOLTAGE_PowerSupplyData_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.close()
+
+
         time.sleep(MEASURING_INTERVAL)
 
     setOnState(ser, False)
     ser.close()             # close port
 
-    # Save data
-    with open(f'data/PowerSupplyData_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.npy', 'wb') as f:
-        np.save(f, t_array)
-        np.save(f, I_array)
-        np.save(f, U_array)
-
-    # Plot data
-    plt.plot(t_array, I_array)
-    plt.xlabel('Time (s)')
-    plt.ylabel('Current (A)')
-    plt.savefig(f"data/plots/CURRENT_PowerSupplyData_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
-    plt.close()
-
-    plt.plot(t_array, U_array)
-    plt.xlabel('Time (s)')
-    plt.ylabel('Voltage (V)')
-    plt.savefig(f"data/plots/VOLTAGE_PowerSupplyData_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
-
+    
     
 
 
