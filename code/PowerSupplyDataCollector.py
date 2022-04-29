@@ -16,9 +16,9 @@ day = 24 * hour
 # Parameters
 RUN_ID = "1"
 CC_CURRENT = 2 # CC current in A
-CC_VOLTAGE = 20 # CC max voltage in V
-MEASURING_TIME = 40 * sec # Measuring time in s
-MEASURING_INTERVAL = 2 * sec # Measuring interval in s
+CC_VOLTAGE = 9*1.50 # CC max voltage in V
+MEASURING_TIME = 20 * hour # Measuring time in s
+MEASURING_INTERVAL = 2 * min # Measuring interval in s
 NUMBER_OF_TIMES_TO_PLOT = 10 # Amount of times to do plotting during the measure interval
 
 def byte_to_float(b):
