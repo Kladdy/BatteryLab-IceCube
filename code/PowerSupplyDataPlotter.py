@@ -17,7 +17,7 @@ NUMBER_OF_TIMES_TO_PLOT = 10 # Amount of times to do plotting during the measure
 
 def main():
     # Load data
-    with open(f'data/PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.npy', 'rb') as f:
+    with open(f'data/charging/PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.npy', 'rb') as f:
         t_array = np.load(f)
         I_array = np.load(f)
         U_array = np.load(f)
@@ -31,7 +31,7 @@ def main():
         plt.yscale(yscale)
         plt.grid(True, "both")
         plt.tight_layout()
-        plt.savefig(f"data/plots/final/CURRENT_{yscale}_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.savefig(f"data/charging/plots/final/CURRENT_{yscale}_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
         plt.close()
 
         plt.plot(t_array, U_array)
@@ -40,7 +40,7 @@ def main():
         plt.yscale(yscale)
         plt.grid(True, "both")
         plt.tight_layout()
-        plt.savefig(f"data/plots/final/VOLTAGE_{yscale}_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.savefig(f"data/charging/plots/final/VOLTAGE_{yscale}_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
         plt.close()
 
 if __name__ == "__main__":

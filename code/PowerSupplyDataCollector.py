@@ -14,7 +14,7 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "1"
+RUN_ID = "2"
 CC_CURRENT = 2 # CC current in A
 CC_VOLTAGE = 9*1.50 # CC max voltage in V
 MEASURING_TIME = 20 * hour # Measuring time in s
@@ -107,7 +107,7 @@ def main():
                 # print(f"Data: u = {u}, i = {i}")
 
                 # Save data
-                with open(f'data/PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.npy', 'wb') as f:
+                with open(f'data/charging/PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.npy', 'wb') as f:
                     np.save(f, t_array)
                     np.save(f, I_array)
                     np.save(f, U_array)
@@ -121,13 +121,13 @@ def main():
                         plt.plot(t_array, I_array)
                         plt.xlabel('Time (s)')
                         plt.ylabel('Current (A)')
-                        plt.savefig(f"data/plots/CURRENT_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+                        plt.savefig(f"data/charging/plots/CURRENT_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
                         plt.close()
 
                         plt.plot(t_array, U_array)
                         plt.xlabel('Time (s)')
                         plt.ylabel('Voltage (V)')
-                        plt.savefig(f"data/plots/VOLTAGE_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+                        plt.savefig(f"data/charging/plots/VOLTAGE_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
                         plt.close()
                 except: 
                     print("Error occureted when plotting. Continuing...")
@@ -141,13 +141,13 @@ def main():
             plt.plot(t_array, I_array)
             plt.xlabel('Time (s)')
             plt.ylabel('Current (A)')
-            plt.savefig(f"data/plots/CURRENT_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+            plt.savefig(f"data/charging/plots/CURRENT_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
             plt.close()
 
             plt.plot(t_array, U_array)
             plt.xlabel('Time (s)')
             plt.ylabel('Voltage (V)')
-            plt.savefig(f"data/plots/VOLTAGE_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+            plt.savefig(f"data/charging/plots/VOLTAGE_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
             plt.close()
 
             print("Measurement done!\n")
