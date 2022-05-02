@@ -1,3 +1,7 @@
+# PowerSupplyDataPlotter.py
+# AUTHOR: Sigfrid Stjärnholm
+# DATE: 2/5 2022
+
 import numpy as np
 from matplotlib import pyplot as plt
 

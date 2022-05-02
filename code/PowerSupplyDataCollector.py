@@ -1,3 +1,7 @@
+# PowerSupplyDataCollector.py
+# AUTHOR: Sigfrid Stjärnholm
+# DATE: 2/5 2022
+
 import serial
 import time
 import numpy as np
@@ -15,6 +19,7 @@ day = 24 * hour
 
 # Parameters
 RUN_ID = "2"
+COM_PORT = "COM3"
 CC_CURRENT = 2 # CC current in A
 CC_VOLTAGE = 9*1.50 # CC max voltage in V
 MEASURING_TIME = 20 * hour # Measuring time in s
@@ -74,7 +79,7 @@ def setOnState(ser, state):
 
 def main():
     # Connect to power supply
-    ser = serial.Serial('COM3', baudrate=115200, timeout=1)  # open serial port
+    ser = serial.Serial(COM_PORT, baudrate=115200, timeout=1)  # open serial port
 
     # Print details
     print(f"Port: {ser.port}, Onstate: {getOnState(ser)}")
@@ -82,9 +87,11 @@ def main():
     print(f"\t Out: Current: {getOutputCurrent(ser)} A, Voltage: {getOutputVoltage(ser)}")
 
     # Initilize
+    print("\nInitializing measurement...")
     setOnState(ser, False)
     setSetCurrent(ser, CC_CURRENT)
     setSetVoltage(ser, CC_VOLTAGE)
+    print("Measurement started!")
     
     try:
         # Use keepawake context to prevent computer from going asleep when we are running
@@ -164,7 +171,7 @@ def main():
             ser.close()             # close port
         else:
             print("Port was not open. Opening port, turnining off power supply and closing.")
-            ser = serial.Serial('COM3', baudrate=115200, timeout=1)  # open serial port
+            ser = serial.Serial(COM_PORT, baudrate=115200, timeout=1)  # open serial port
             setOnState(ser, False)
             time.sleep(1)
             if getOnState(ser):
