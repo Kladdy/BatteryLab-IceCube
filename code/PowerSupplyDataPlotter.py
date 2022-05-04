@@ -4,6 +4,7 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
+import os
 
 # Time units
 sec = 1
@@ -18,6 +19,17 @@ CC_VOLTAGE = 9*1.50 # CC max voltage in V
 MEASURING_TIME = 20 * hour # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
 NUMBER_OF_TIMES_TO_PLOT = 10 # Amount of times to do plotting during the measure interval
+
+path = f'data/charging/plots/final/RUN_ID-{RUN_ID}'
+
+# Check whether the specified path exists or not
+isExist = os.path.exists(path)
+
+if not isExist:
+  # Create a new directory because it does not exist 
+  os.makedirs(path)
+  print(f"The new directory is created! ({path})")
+
 
 def main():
     # Load data
@@ -35,7 +47,7 @@ def main():
         plt.yscale(yscale)
         plt.grid(True, "both")
         plt.tight_layout()
-        plt.savefig(f"data/charging/plots/final/CURRENT_{yscale}_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.savefig(f"{path}/CURRENT_{yscale}_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
         plt.close()
 
         plt.plot(t_array, U_array)
@@ -44,7 +56,7 @@ def main():
         plt.yscale(yscale)
         plt.grid(True, "both")
         plt.tight_layout()
-        plt.savefig(f"data/charging/plots/final/VOLTAGE_{yscale}_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.savefig(f"{path}/VOLTAGE_{yscale}_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
         plt.close()
 
 if __name__ == "__main__":
