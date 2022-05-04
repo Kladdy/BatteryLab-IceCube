@@ -4,6 +4,7 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
+import os
 
 # Time units
 sec = 1
@@ -12,10 +13,20 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "2"
+RUN_ID = "2.1"
 CW_POWER = 6 # CW power in W
-MEASURING_TIME = 40 * sec # Measuring time in s
-MEASURING_INTERVAL = 2 * sec # Measuring interval in s
+MEASURING_TIME = 2 * day # Measuring time in s
+MEASURING_INTERVAL = 2 * min # Measuring interval in s
+
+path = f'data/discharging/plots/final/RUN_ID-{RUN_ID}'
+
+# Check whether the specified path exists or not
+isExist = os.path.exists(path)
+
+if not isExist:
+  # Create a new directory because it does not exist 
+  os.makedirs(path)
+  print(f"The new directory is created! ({path})")
 
 def main():
     # Load data
@@ -34,7 +45,7 @@ def main():
         plt.yscale(yscale)
         plt.grid(True, "both")
         plt.tight_layout()
-        plt.savefig(f"data/discharging/plots/final/CURRENT_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.savefig(f"{path}/CURRENT_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
         plt.close()
 
         plt.plot(t_array, U_array)
@@ -43,7 +54,7 @@ def main():
         plt.yscale(yscale)
         plt.grid(True, "both")
         plt.tight_layout()
-        plt.savefig(f"data/discharging/plots/final/VOLTAGE_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.savefig(f"{path}/VOLTAGE_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
         plt.close()
 
         plt.plot(t_array, P_array)
@@ -52,7 +63,7 @@ def main():
         plt.yscale(yscale)
         plt.grid(True, "both")
         plt.tight_layout()
-        plt.savefig(f"data/discharging/plots/final/POWER_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.savefig(f"{path}/POWER_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
         plt.close()
 
 if __name__ == "__main__":
