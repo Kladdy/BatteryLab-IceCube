@@ -17,10 +17,10 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "2.1"
+RUN_ID = "3"
 COM_PORT = "COM4"
-CW_POWER = 6 # CW power in W
-MEASURING_TIME = 48 * hour # Measuring time in s
+CW_POWER = 12 # CW power in W
+MEASURING_TIME = 72 * hour # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
 NUMBER_OF_TIMES_TO_PLOT = 40 # Amount of times to do plotting during the measure interval
 
