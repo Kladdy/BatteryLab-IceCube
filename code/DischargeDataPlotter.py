@@ -13,9 +13,9 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "2.1"
+RUN_ID = "2-merged"
 CW_POWER = 6 # CW power in W
-MEASURING_TIME = 2 * day # Measuring time in s
+MEASURING_TIME = 3 * day # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
 
 path = f'data/discharging/plots/final/RUN_ID-{RUN_ID}'
