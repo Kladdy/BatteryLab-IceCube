@@ -13,8 +13,8 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "2-merged"
-CW_POWER = 6 # CW power in W
+RUN_ID = "3"
+CW_POWER = 12 # CW power in W
 MEASURING_TIME = 3 * day # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
 
