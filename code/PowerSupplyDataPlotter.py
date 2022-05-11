@@ -18,9 +18,16 @@ CC_CURRENT = 2 # CC current in A
 CC_VOLTAGE = 9*1.50 # CC max voltage in V
 MEASURING_TIME = 48 * hour # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
-NUMBER_OF_TIMES_TO_PLOT = 10 # Amount of times to do plotting during the measure interval
+plot_x_in_hours = True # Flag to choose if we are plotting x axis in hours instead of seconds
 
 path = f'data/charging/plots/final/RUN_ID-{RUN_ID}'
+
+if plot_x_in_hours:
+    x_label = "Time (h)"
+    time_factor = 3600
+else:
+    x_label = "Time (s)"
+    time_factor = 1
 
 # Check whether the specified path exists or not
 isExist = os.path.exists(path)
@@ -41,8 +48,8 @@ def main():
 
     # Plot data in linear and log scale
     for yscale in ["linear", "log"]:
-        plt.plot(t_array, I_array)
-        plt.xlabel('Time (s)')
+        plt.plot(t_array / time_factor, I_array)
+        plt.xlabel(x_label)
         plt.ylabel('Current (A)')
         plt.yscale(yscale)
         plt.grid(True, "both")
@@ -50,8 +57,8 @@ def main():
         plt.savefig(f"{path}/CURRENT_{yscale}_PowerSupplyData_RUN_ID-{RUN_ID}_CURRENT-{CC_CURRENT}_VOLTAGE-{CC_VOLTAGE}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
         plt.close()
 
-        plt.plot(t_array, U_array)
-        plt.xlabel('Time (s)')
+        plt.plot(t_array / time_factor, U_array)
+        plt.xlabel(x_label)
         plt.ylabel('Voltage (V)')
         plt.yscale(yscale)
         plt.grid(True, "both")

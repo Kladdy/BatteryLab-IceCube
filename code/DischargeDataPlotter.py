@@ -17,8 +17,16 @@ RUN_ID = "3"
 CW_POWER = 12 # CW power in W
 MEASURING_TIME = 3 * day # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
+plot_x_in_hours = True # Flag to choose if we are plotting x axis in hours instead of seconds
 
 path = f'data/discharging/plots/final/RUN_ID-{RUN_ID}'
+
+if plot_x_in_hours:
+    x_label = "Time (h)"
+    time_factor = 3600
+else:
+    x_label = "Time (s)"
+    time_factor = 1
 
 # Check whether the specified path exists or not
 isExist = os.path.exists(path)
@@ -39,8 +47,8 @@ def main():
 
     # Plot data in linear and log scale
     for yscale in ["linear", "log"]:
-        plt.plot(t_array, I_array)
-        plt.xlabel('Time (s)')
+        plt.plot(t_array / time_factor, I_array)
+        plt.xlabel(x_label)
         plt.ylabel('Current (A)')
         plt.yscale(yscale)
         plt.grid(True, "both")
@@ -48,8 +56,8 @@ def main():
         plt.savefig(f"{path}/CURRENT_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
         plt.close()
 
-        plt.plot(t_array, U_array)
-        plt.xlabel('Time (s)')
+        plt.plot(t_array / time_factor, U_array)
+        plt.xlabel(x_label)
         plt.ylabel('Voltage (V)')
         plt.yscale(yscale)
         plt.grid(True, "both")
@@ -57,8 +65,8 @@ def main():
         plt.savefig(f"{path}/VOLTAGE_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
         plt.close()
 
-        plt.plot(t_array, P_array)
-        plt.xlabel('Time (s)')
+        plt.plot(t_array / time_factor, P_array)
+        plt.xlabel(x_label)
         plt.ylabel('Power (W)')
         plt.yscale(yscale)
         plt.grid(True, "both")

@@ -1,0 +1,28 @@
+### Charging ###
+RUN_ID 1:
+    Date: ?
+    CC max current: 2 A
+    CV max voltage: 13.5 V
+    Measuring time: 20 h
+    Measuring interval: 2 min
+
+RUN_ID 3:
+    Date: ?
+    CC max current: 2 A
+    CV max voltage: 13.5 V
+    Measuring time: 2 days
+    Measuring interval: 2 min
+
+
+### Discharging ###
+RUN_ID 2 (+ 2.1):
+    Date: ?
+    CW max power: 6
+    Measuring time: 3 days
+    Measuring interval: 2 min
+
+RUN_ID 3:
+    Date: 11/5-2022
+    CW max power: 12
+    Measuring time: 3 days
+    Measuring interval: 2 min
