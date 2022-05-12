@@ -7,8 +7,8 @@ import numpy as np
 import os
 
 # Constants
-ids_to_merge = ["2", "2.1"]
-merge_to_id = "2-merged" # Dont use _ in name
+ids_to_merge = ["3", "3.1"]
+merge_to_id = "3-merged" # Dont use _ in name
 directory = 'data/discharging'
 
 filename_list = []
