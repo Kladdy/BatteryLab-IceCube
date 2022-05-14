@@ -55,8 +55,9 @@ def main():
         plt.ylabel('Current (A)')
         plt.yscale(yscale)
         plt.grid(True, "both")
+        if yscale != "log": plt.gca().get_yaxis().get_major_formatter().set_useOffset(False) # Prevent y-axis from having an offset in tickers
         plt.tight_layout()
-        plt.savefig(f"{path}/CURRENT_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.savefig(f"{path}/CURRENT_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png", dpi=300)
         plt.close()
 
         plt.plot(t_array / time_factor, U_array)
@@ -64,8 +65,9 @@ def main():
         plt.ylabel('Voltage (V)')
         plt.yscale(yscale)
         plt.grid(True, "both")
+        if yscale != "log": plt.gca().get_yaxis().get_major_formatter().set_useOffset(False) # Prevent y-axis from having an offset in tickers
         plt.tight_layout()
-        plt.savefig(f"{path}/VOLTAGE_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.savefig(f"{path}/VOLTAGE_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png", dpi=300)
         plt.close()
 
         plt.plot(t_array / time_factor, P_array)
@@ -73,8 +75,9 @@ def main():
         plt.ylabel('Power (W)')
         plt.yscale(yscale)
         plt.grid(True, "both")
+        if yscale != "log": plt.gca().get_yaxis().get_major_formatter().set_useOffset(False) # Prevent y-axis from having an offset in tickers
         plt.tight_layout()
-        plt.savefig(f"{path}/POWER_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png")
+        plt.savefig(f"{path}/POWER_{yscale}_DischargeData_RUN_ID-{RUN_ID}_POWER-{CW_POWER}_TIME-{MEASURING_TIME}_INTERVAL-{MEASURING_INTERVAL}.png", dpi=300)
         plt.close()
 
 if __name__ == "__main__":
