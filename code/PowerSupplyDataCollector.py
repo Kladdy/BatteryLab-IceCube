@@ -18,13 +18,13 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "3"
+RUN_ID = "4"
 COM_PORT = "COM3"
 CC_CURRENT = 2 # CC current in A
 CC_VOLTAGE = 9*1.50 # CC max voltage in V
-MEASURING_TIME = 48 * hour # Measuring time in s
+MEASURING_TIME = 3 * day # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
-NUMBER_OF_TIMES_TO_PLOT = 20 # Amount of times to do plotting during the measure interval
+NUMBER_OF_TIMES_TO_PLOT = 40 # Amount of times to do plotting during the measure interval
 
 def byte_to_float(b):
     return float(b.decode())
