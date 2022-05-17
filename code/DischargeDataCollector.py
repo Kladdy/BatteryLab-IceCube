@@ -17,12 +17,15 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "3.1"
+RUN_ID = "5"
 COM_PORT = "COM4"
-CW_POWER = 12 # CW power in W
-MEASURING_TIME = 72 * hour # Measuring time in s
+CW_POWER = 24 # CW power in W
+MEASURING_TIME = 5 * day # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
 NUMBER_OF_TIMES_TO_PLOT = 40 # Amount of times to do plotting during the measure interval
+
+# NOTE: Not sure if CC_MAX_CURRENT works, as we are doing CW. 
+CC_MAX_CURRENT = 10 # The maximum current to ouput (to prevent current spike in the end)
 
 def byte_to_float(b):
     return float(b.decode())
@@ -90,6 +93,10 @@ def setCWPower(ser, power):
     ser.write(encode(f":POW {power}W"))
     return ser.readline()
 
+def setCCCurrent(ser, current):
+    ser.write(encode(f":CURR {current}W"))
+    return ser.readline()
+
 def getMeasureCurrent(ser):
     ser.write(encode(f":MEASure:CURRent?"))
     return float(byte_to_string(ser.readline()).strip()[:-1]) # strip to remove newline, [:-1] to remove unit
@@ -136,6 +143,7 @@ def main():
     print("\nInitializing measurement...")
     setOnState(ser, False)
     setCWPower(ser, CW_POWER)
+    setCCCurrent(ser, CC_MAX_CURRENT)
     print("Measurement started!")
     
     try:

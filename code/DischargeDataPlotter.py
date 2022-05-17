@@ -16,9 +16,9 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "3-merged"
-CW_POWER = 12 # CW power in W
-MEASURING_TIME = 6 * day # Measuring time in s
+RUN_ID = "4"
+CW_POWER = 24 # CW power in W
+MEASURING_TIME = 5 * day # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
 plot_x_in_hours = True # Flag to choose if we are plotting x axis in hours instead of seconds
 

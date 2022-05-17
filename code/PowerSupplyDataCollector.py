@@ -18,10 +18,10 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "4"
+RUN_ID = "6"
 COM_PORT = "COM3"
 CC_CURRENT = 2 # CC current in A
-CC_VOLTAGE = 9*1.50 # CC max voltage in V
+CC_VOLTAGE = 1.14*9*1.60 # CC max voltage in V
 MEASURING_TIME = 3 * day # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
 NUMBER_OF_TIMES_TO_PLOT = 40 # Amount of times to do plotting during the measure interval
