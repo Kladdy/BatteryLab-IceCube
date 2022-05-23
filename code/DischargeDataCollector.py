@@ -17,7 +17,7 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "5"
+RUN_ID = "6"
 COM_PORT = "COM4"
 CW_POWER = 24 # CW power in W
 MEASURING_TIME = 5 * day # Measuring time in s

@@ -75,3 +75,11 @@ RUN_ID 5:
     Notes: The battery was barely charged, and lasted only for a few minutes,
         almost like for Discharging RUN_ID 4 but a little bit better due to the
         voltage temperatue adjustment
+
+RUN_ID 6:
+    Date: 23/5-2022
+    CW max power: 24
+    Measuring time: 5 days
+    Measuring interval: 2 min
+    Temperature: -50 C
+    Notes:
