@@ -16,7 +16,7 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "4"
+RUN_ID = "6"
 CW_POWER = 24 # CW power in W
 MEASURING_TIME = 5 * day # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s

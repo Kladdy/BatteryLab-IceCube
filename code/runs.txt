@@ -41,6 +41,14 @@ RUN_ID 6:
     Temperature: -50 C
     Notes: Temperature adjustment of voltage + higher voltage
 
+RUN_ID 7: 
+    Date: 23/5-2022 (after Discharging RUN_ID 6)
+    CC max current: 2 A
+    CV max voltage: 9*1.50 = 13.5 V
+    Measuring time: 3 days
+    Measuring interval: 2 min
+    Temperature: -50 C
+    Notes: Temperature adjustment of voltage + higher voltage
 
 ### Discharging ###
 RUN_ID 2 (+ 2.1):
@@ -74,7 +82,7 @@ RUN_ID 5:
     Temperature: -50 C
     Notes: The battery was barely charged, and lasted only for a few minutes,
         almost like for Discharging RUN_ID 4 but a little bit better due to the
-        voltage temperatue adjustment
+        voltage temperature adjustment
 
 RUN_ID 6:
     Date: 23/5-2022
@@ -82,4 +90,5 @@ RUN_ID 6:
     Measuring time: 5 days
     Measuring interval: 2 min
     Temperature: -50 C
-    Notes:
+    Notes: Again, the battery did not do anything. I will now turn it up to room
+        temperature again and make sure it acts like normal...
