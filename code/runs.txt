@@ -50,6 +50,14 @@ RUN_ID 7:
     Temperature: -50 C
     Notes: Temperature adjustment of voltage + higher voltage
 
+RUN_ID 8: 
+    Date: 25/5-2022
+    CC max current: 2 A
+    CV max voltage: 9*1.50 = 13.5 V
+    Measuring time: 3 days
+    Measuring interval: 2 min
+    Temperature: 20 C
+
 ### Discharging ###
 RUN_ID 2 (+ 2.1):
     Date: ?

@@ -18,7 +18,7 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "7"
+RUN_ID = "8"
 COM_PORT = "COM3"
 CC_CURRENT = 2 # CC current in A
 CC_VOLTAGE = 9*1.50 # CC max voltage in V
