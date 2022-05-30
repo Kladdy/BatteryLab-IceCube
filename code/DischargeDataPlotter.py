@@ -16,9 +16,9 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "6"
+RUN_ID = "7"
 CW_POWER = 24 # CW power in W
-MEASURING_TIME = 5 * day # Measuring time in s
+MEASURING_TIME = 3 * day # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
 plot_x_in_hours = True # Flag to choose if we are plotting x axis in hours instead of seconds
 

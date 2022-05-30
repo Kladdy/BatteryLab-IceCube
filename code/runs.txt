@@ -100,3 +100,11 @@ RUN_ID 6:
     Temperature: -50 C
     Notes: Again, the battery did not do anything. I will now turn it up to room
         temperature again and make sure it acts like normal...
+
+RUN_ID 7:
+    Date: 30/5-2022
+    CW max power: 24
+    Measuring time: 3 days
+    Measuring interval: 2 min
+    Temperature: 20 C
+    Notes: 

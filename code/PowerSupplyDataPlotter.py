@@ -13,10 +13,10 @@ hour = 60 * min
 day = 24 * hour
 
 # Parameters
-RUN_ID = "5"
+RUN_ID = "8"
 CC_CURRENT = 2 # CC current in A
-CC_VOLTAGE = 1.14*9*1.50 # CC max voltage in V
-MEASURING_TIME = 4 * day # Measuring time in s
+CC_VOLTAGE = 9*1.50 # CC max voltage in V
+MEASURING_TIME = 3 * day # Measuring time in s
 MEASURING_INTERVAL = 2 * min # Measuring interval in s
 plot_x_in_hours = True # Flag to choose if we are plotting x axis in hours instead of seconds
 
