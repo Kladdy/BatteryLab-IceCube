@@ -39,36 +39,6 @@ def byte_to_string(b):
 def encode(s):
     return (s + "\n").encode()
 
-# # Get the set current and convert into a float representation
-# def getSetCurrent(ser):
-#     ser.write(encode("ISET01?"))
-#     return byte_to_float(ser.readline())
-
-# # Get the set voltage and convert into a float representation
-# def getSetVoltage(ser):
-#     ser.write(encode("VSET01?"))
-#     return byte_to_float(ser.readline())
-
-# # Get the set current and convert into a float representation
-# def setSetCurrent(ser, current):
-#     ser.write(encode("ISET01:" + str(current)))
-#     return 
-
-# # Get the set voltage and convert into a float representation
-# def setSetVoltage(ser, voltage):
-#     ser.write(encode("VSET01:" + str(voltage)))
-#     return 
-
-# # Get the output current and convert into a float representation
-# def getOutputCurrent(ser):
-#     ser.write(encode("IOUT01?"))
-#     return byte_to_float(ser.readline())
-
-# # Get the output voltage and convert into a float representation
-# def getOutputVoltage(ser):
-#     ser.write(encode("VOUT01?"))
-#     return byte_to_float(ser.readline())
-
 # Get the on state
 def getOnState(ser):
     ser.write(encode(":INPut?"))
